@@ -44,14 +44,29 @@ fn calc(k: usize) {
 
     for (kind, elms) in res.iter() {
         let centers = res_centers.get(kind).unwrap();
+        /*
         println!(
             "#(elms: {}, kind: {}) [{}] <= [{}]\ncenters #({}): [{}]",
             elms.len(),
             kind.len(),
-            kind.iter().map(|r| r.to_string()).join(", "),
-            elms.iter().join(", "),
+            kind.iter().collect::<Vec<_>>()
+                .chunks(8).map(|c| c.iter().map(|r| r.to_string()).join(", ")).join("\n"),
+            elms.chunks(8).map(|c| c.iter().map(|r| r.to_string()).join(", ")).join("\n"),
             centers.len(),
-            centers.iter().map(|r| r.to_string()).join(", ")
+            centers.iter().collect::<Vec<_>>()
+                .chunks(8).map(|c| c.iter().map(|r| r.to_string()).join(", ")).join("\n")
+        );
+        */
+        println!(
+            "#(elms: {}, kind: {}) [{}]\ncenters #({}): [{}]",
+            elms.len(),
+            kind.len(),
+            kind.iter().collect::<Vec<_>>()
+                .chunks(8).map(|c| c.iter().map(|r| r.to_string()).join(", ")).join("\n"),
+            // elms.chunks(8).map(|c| c.iter().map(|r| r.to_string()).join(", ")).join("\n"),
+            centers.len(),
+            centers.iter().collect::<Vec<_>>()
+                .chunks(8).map(|c| c.iter().map(|r| r.to_string()).join(", ")).join("\n")
         );
     }
 }
